@@ -94,7 +94,6 @@ body {
 
 .projects-container fieldset {
   padding: 20px 30px 20px 30px;
-  background-image: url("../assets/portfolio-background.png");
   background-blend-mode: luminosity;
   background-repeat: no-repeat;
   background-size: cover;
