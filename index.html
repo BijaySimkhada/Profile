@@ -14,10 +14,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FONT AWESOME V6.1.1 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
+  <!-- animation lib  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
   <body>
     <!-- header here -->
-    <header class="flex justify-between w-full py-2 px-2 md:px-5 bg-white sticky top-0 custom-box-shadow">
+    <header class="flex justify-between w-full py-2 px-2 md:px-5 bg-white sticky top-0 custom-box-shadow animate__animated animate__fadeInRight" style="z-index: 999;">
       <!-- email -->
       <div class="flex items-center gap-1 md:gap-5 ">
         <i class="fa fa-envelope text-red-500" aria-hidden="true"></i>
@@ -29,7 +31,7 @@
       </div>
     </header>
 
-    <div class="flex flex-col gap-5 fixed top-72 right-5 rounded-lg p-5 bg-white custom-box-shadow invisible md:visible ">
+    <div class="animate__animated animate__fadeInLeft flex flex-col gap-5 fixed top-72 right-5 rounded-lg p-5 bg-white custom-box-shadow invisible md:visible ">
       <div>
         <a href="#home"><i class="fa-solid fa-house hover:text-red-500 hover:animate-bounce"></i></a>
       </div>
@@ -45,7 +47,7 @@
     <!-- body start -->
     <div class="w-full flex flex-col md:gap-y-5 mt-12 md:m-12 md:w-11/12">
      <!-- first section -->
-    <section class="w-full md:h-96 md:grid grid-cols-3 px-5 md:pl-24" id="home">
+    <section class="w-full md:h-96 md:grid grid-cols-3 px-5 md:pl-24 animate__animated animate__fadeInLeft " id="home">
       <!-- description here -->
       <div class="md:col-span-2 flex items-center">
         <div class=" flex flex-col gap-2">
@@ -78,7 +80,7 @@
     </section>
 
     <!-- second section -->
-    <section class="w-full flex flex-col-reverse md:h-96 md:grid grid-cols-3 my-12 px-5 md:pr-28" id="about">
+    <section class="w-full flex flex-col-reverse md:h-96 md:grid grid-cols-3 my-12 px-5 md:pr-28 animate__animated animate__fadeInRight " id="about">
       <!-- img here -->
       <div class="px-10 flex flex-col items-center justify-center">
         <img src="assets/about.svg" class="h-96 w-full object-contain rounded-md" alt="">
@@ -131,7 +133,7 @@
     </section>
 
     <!-- my portfolio section -->
-    <section class="w-full md:h-96 md:grid grid-row-2 my-12 px-5 md:px-24" id="portfolio">
+    <section class="w-full md:h-96 md:grid grid-row-2 my-12 px-5 md:px-24 animate__animated animate__fadeInLeft " id="portfolio">
 
       <!-- description here -->
       <div class="flex items-center">
