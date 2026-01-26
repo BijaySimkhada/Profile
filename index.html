@@ -1,250 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bijay Simkhada | CLI Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Bijay Simkhada</title>
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,500;0,600;1,200&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FONT AWESOME V6.1.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- animation lib  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0d1117;
+      font-family: 'Fira Code', monospace;
+      color: #c9d1d9;
+    }
+
+    .terminal {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 24px;
+      background: #010409;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.9);
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* ===== PROFILE ===== */
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .profile img {
+      width: 80px;
+      height: 80px;
+      border-radius: 6px;
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    }
+
+    .profile-info strong {
+      font-size: 1.1rem;
+      color: #7ee787;
+    }
+
+    .profile-info div {
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+
+    /* ===== OUTPUT ===== */
+    #output {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 6px;
+      padding-bottom: 20px;
+    }
+
+    .prompt {
+      color: #58a6ff;
+      white-space: pre-wrap;
+      margin-top: 10px;
+    }
+
+    .output {
+      white-space: pre-wrap;
+      margin-left: 14px;
+      margin-bottom: 10px;
+    }
+
+    .error {
+      color: #f85149;
+      margin-left: 14px;
+    }
+
+    /* ===== PROJECT ===== */
+    .project {
+      margin-left: 14px;
+      margin-bottom: 24px;
+    }
+
+    .project img {
+      width: 140px;
+      border-radius: 6px;
+      margin: 10px 0;
+      display: block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    /* ===== STICKY INPUT ===== */
+    .input-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      padding-top: 12px;
+      margin-top: 10px;
+      background: #010409;
+      border-top: 1px solid #21262d;
+    }
+
+    .input-line span {
+      color: #58a6ff;
+      white-space: nowrap;
+    }
+
+    input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #7ee787;
+      font-family: inherit;
+      font-size: 1rem;
+      width: 100%;
+      caret-color: #c9d1d9;
+    }
+
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- header here -->
-  <header
-    class="flex justify-between w-full py-2 px-2 md:px-5 bg-white sticky top-0 custom-box-shadow animate__animated animate__fadeInRight"
-    style="z-index: 999;">
-    <!-- email -->
-    <div class="flex items-center gap-1 md:gap-5 ">
-      <i class="fa fa-envelope text-red-500" aria-hidden="true"></i>
-      <div class="text-gray-500 text-sm">bijaysimkhada5@gmail.com</div>
-    </div>
-    <div class="flex items-center gap-1 md:gap-5 ">
-      <i class="fa fa-phone-square text-red-500" aria-hidden="true"></i>
-      <div class="text-sm text-gray-500">+977-0000000000</div>
-    </div>
-  </header>
 
-  <div
-    class="animate__animated animate__fadeInLeft flex flex-col gap-5 fixed top-72 right-5 rounded-lg p-5 bg-white custom-box-shadow invisible md:visible ">
-    <div>
-      <a href="#home"><i class="fa-solid fa-house hover:text-red-500 hover:animate-bounce"></i></a>
-    </div>
-    <div>
-      <a href="#about"><i class="fa-solid fa-address-card hover:text-red-500 hover:animate-bounce"></i></a>
-    </div>
-    <div>
-      <a href="#portfolio"><i class="fa-sharp fa-regular fa-file hover:text-red-500 hover:animate-bounce"></i></a>
+<div class="terminal">
+  <!-- PROFILE -->
+  <div class="profile">
+    <img src="assets/me.jpg" alt="Bijay Simkhada" />
+    <div class="profile-info">
+      <strong>Bijay Simkhada</strong>
+      <div>Web & Flutter Developer</div>
+      <div>Nepal 🇳🇵</div>
     </div>
   </div>
 
-  <!-- *** -->
-  <!-- body start -->
-  <div class="w-full flex flex-col md:gap-y-5 mt-12 md:m-12 md:w-11/12">
-    <!-- first section -->
-    <section class="w-full md:h-96 md:grid grid-cols-3 px-5 md:pl-24 animate__animated animate__fadeInLeft " id="home">
-      <!-- description here -->
-      <div class="md:col-span-2 flex items-center">
-        <div class=" flex flex-col gap-2">
-          <p class="text-2xl text-gray-500">Hey I Am,</p>
-          <span class="flex gap-2 text-4xl">
-            <p class="text-red-500">Bijay</p>
-            <p class="text-gray-500">Simkhada. </p>
-          </span>
-          <span class="flex flex-col md:flex-row gap-2 text-xl text-gray-500">
-            <p class="">I am a professional</p>
-            <p class="text-red-500">Web / Flutter developer.</p>
-          </span>
-          <span class="flex flex-col gap-2">
-            <p class="text-justify">
-              As a developer, I am a skilled and experienced professional who is passionate about developing quality,
-              responsive and user-friendly web and mobile applications. I have a strong understanding of both front-end
-              and back-end technologies, including HTML, CSS, JavaScript and Dart.
-            </p>
-          </span>
-          <!-- social links here -->
-          <span class=" flex gap-5 text-2xl">
-            <a href="https://www.linkedin.com/in/bijay-simkhada-3b26141b4/" target="_blank"><i
-                class="fa-brands fa-linkedin hover:text-blue-900 cursor-pointer hover:animate-bounce "></i></a>
-            <a href="https://github.com/BijaySimkhada" target="_blank"><i class="fa-brands fa-github hover:text-gray-500 cursor-pointer hover:animate-bounce"></i></a>
-            <a href=""><i class="fa-brands fa-gitlab hover:text-orange-500 cursor-pointer hover:animate-bounce"></i></a>
-          </span>
-        </div>
-      </div>
-      <!-- img here -->
-      <div class="px-10 mt-8 md:mt-0 flex items-center">
-        <img src="assets/me.jpg" class="h-1/2 md:h-96 w-full object-cover rounded-md" alt="">
-      </div>
-    </section>
+  <!-- OUTPUT -->
+  <div id="output"></div>
 
-    <!-- second section -->
-    <section
-      class="w-full flex flex-col-reverse md:h-96 md:grid grid-cols-3 my-12 px-5 md:pr-28 animate__animated animate__fadeInRight "
-      id="about">
-      <!-- img here -->
-      <div class="px-10 flex flex-col items-center justify-center">
-        <img src="assets/about.svg" class="h-96 w-full object-contain rounded-md" alt="">
-        <a href="https://storyset.com/people" target="_blank" class="text-sm text-gray-200">People illustrations by
-          Storyset</a>
-      </div>
-      <!-- about me desc -->
-      <div class="col-span-2 flex items-center">
-        <div class="flex flex-col gap-2">
-          <span class="flex gap-2 text-4xl">
-            <p class="text-red-500">About</p>
-            <p class="text-gray-500">me. </p>
-          </span>
-          </span>
-          <span class="flex flex-col gap-2">
-            <p class="text-justify">
-              I'm a tech enthusiast who loves coding. Personally i am seeking for an oppurtunity to learn new ideas,
-              ways for solving problems and expand my knowledge.</p>
-            <p class="text-justify">
-              I am passionate about staying up-to-date with the latest trends and technologies in web and mobile
-              development, and I am always eager to take on new challenges and projects.
-            </p>
-          </span>
-          <!-- social links here -->
-          <span class=" flex gap-5 text-2xl">
-            <a href=""><i class="fa-brands fa-facebook hover:text-blue-600 cursor-pointer hover:animate-bounce"></i></a>
-            <a href=""><i
-                class="fa-brands fa-instagram hover:text-pink-500 cursor-pointer hover:animate-bounce"></i></a>
-          </span>
-          <!-- education desc -->
-          <div class="w-full">
-            <span class="flex gap-2 text-4xl">
-              <p class="text-red-500">Educational</p>
-              <p class="text-gray-500">Status. </p>
-            </span>
-            <div class="w-full grid grid-cols-2 py-2 gap-5">
-              <article class="">
-                <i class="fa-solid fa-school text-2xl text-gray-500"></i>
-                <div>
-                  <p class="font-bold">Bachelors in Information Management</p>
-                  <p>National College of Computer Studies</p>
-                  <p class="text-gray-500">Year: 2017 - 2022</p>
-                </div>
-              </article>
-              <article>
-                <i class="fa-solid fa-school text-2xl text-gray-500"></i>
-                <p class="font-bold">Intermediate Studies (+2)</p>
-                <p>National College of Computer Studies</p>
-                <p class="text-gray-500">Year: 2015 - 2017</p>
-              </article>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- my portfolio section -->
-    <section class="w-full md:h-96 md:grid grid-row-2 my-12 px-5 md:px-24 animate__animated animate__fadeInLeft "
-      id="portfolio">
-
-      <!-- description here -->
-      <div class="flex items-center">
-        <div class="flex flex-col gap-2">
-          <span class="flex gap-2 text-4xl">
-            <p class="text-gray-500">My</p>
-            <p class="text-red-500">Portfolio</p>
-          </span>
-          </span>
-          <span class="flex flex-col gap-2">
-            <p class="text-justify">
-              As a Web/Flutter developer, my portfolio showcases my expertise in developing high-quality, responsive web
-              and mobile applications using the latest tools and technologies. I have a strong foundation in HTML, CSS,
-              JavaScript, and have worked extensively with the Flutter framework for developing mobile applications.
-            </p>
-          </span>
-          <!-- social links here -->
-          <span class="w-full flex flex-row-reverse gap-5 text-2xl">
-            <a href="https://github.com/BijaySimkhada" target="_blank"><i class="fa-brands fa-github hover:text-gray-500 cursor-pointer hover:animate-bounce"></i></a>
-            <a href=""><i class="fa-brands fa-gitlab hover:text-orange-500 cursor-pointer hover:animate-bounce"></i></a>
-          </span>
-        </div>
-      </div>
-      <!-- portfolio items here -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-        <!-- Portfolio Item 1 -->
-        <div class="bg-white p-5 rounded-lg shadow-md">
-          <!-- Image Section -->
-          <div class="mb-3 h-40">
-            <img
-              src="https://play-lh.googleusercontent.com/BmVrp-6ZCNjr31gHQvCOGUyfpTQ96bPKeji8Y3V2huIh6_8FxhEOaghP-40THqeHzNQ=w240-h480-rw"
-              alt="App Preview" class=" h-full rounded-md shadow-md">
-          </div>
-          <!-- App Details -->
-          <h2 class="text-2xl font-bold mb-3">DocPrep</h2>
-          <p class="text-gray-600"> A comprehensive app tailored for aspiring medical students seeking to excel in their
-            entrance exams. As a developer, I've designed DocPrep to provide an interactive and efficient platform for
-            users to enhance their knowledge and test-taking skills in preparation for medical school admission.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.ktmbees.docprep" target="_blank"
-            class="text-blue-500 mt-3 inline-block">View</a>
-        </div>
-
-        <!-- Portfolio Item 2 -->
-        <div class="bg-white p-5 rounded-lg shadow-md">
-          <!-- Image Section -->
-          <div class="mb-3 h-40">
-            <img
-              src="https://play-lh.googleusercontent.com/SR70SUdP21e4mczqA-2RuWde9z5LUHTkYd_6tl3uziqy0Gqj8b8wsxq3iYS7Yv83Atwa=w240-h480-rw"
-              alt="App Preview" class=" h-full rounded-md shadow-md">
-          </div>
-          <!-- App Details -->
-          <h2 class="text-2xl font-bold mb-3">Tolka</h2>
-          <p class="text-gray-600"> An App for students aspiring to master the German language. As a developer, I've
-            carefully crafted Tolka to be a one-stop solution for a seamless and effective learning experience.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.ktmbees.tolka" target="_blank"
-            class="text-blue-500 mt-3 inline-block">View</a>
-        </div>
-        <!-- Add more portfolio items as needed -->
-
-      </div>
-    </section>
-
-    <!-- my portfolio section -->
-    <!-- <section class="w-full md:h-96 md:grid grid-row-2 my-12 px-5 md:px-24 animate__animated animate__fadeInLeft " id="portfolio"> -->
-
-    <!-- description here -->
-    <!-- <div class="flex items-center"> -->
-    <!-- <div class="flex flex-col gap-2">
-          <span class="flex gap-2 text-4xl"><p class="text-gray-500">My</p> <p class="text-red-500">Portfolio</p></span>
-         </span>
-         <span class="flex flex-col gap-2">
-          <p class="text-justify">
-            As a Web/Flutter developer, my portfolio showcases my expertise in developing high-quality, responsive web and mobile applications using the latest tools and technologies. I have a strong foundation in HTML, CSS, JavaScript, and have worked extensively with the Flutter framework for developing mobile applications.
-          </p>
-        </span> -->
-    <!-- social links here -->
-    <!-- <span class="w-full flex flex-row-reverse gap-5 text-2xl">
-          <a href=""><i class="fa-brands fa-github hover:text-gray-500 cursor-pointer hover:animate-bounce" ></i></a>
-          <a href=""><i class="fa-brands fa-gitlab hover:text-orange-500 cursor-pointer hover:animate-bounce"></i></a>
-        </span>
-        </div>
-      </div> -->
-    <!-- img here -->
-    <!-- <div class="w-full mt-5 md:mt-5 flex flex-end justify-center">
-        <p class="text-6xl">Coming soon!</p>
-      </div>
-    </section> -->
+  <!-- STICKY INPUT -->
+  <div class="input-line">
+    <span>bijay@portfolio:~$</span>
+    <input id="commandInput" autofocus />
   </div>
-  <footer></footer>
+</div>
+
+<script>
+  const output = document.getElementById("output");
+  const input = document.getElementById("commandInput");
+
+  function scrollToBottom() {
+    requestAnimationFrame(() => {
+      output.scrollTop = output.scrollHeight;
+    });
+  }
+
+  function printPrompt(cmd) {
+    const div = document.createElement("div");
+    div.className = "prompt";
+    div.textContent = `bijay@portfolio:~$ ${cmd}`;
+    output.appendChild(div);
+    scrollToBottom();
+  }
+
+  function print(text, className = "output") {
+    const div = document.createElement("div");
+    div.className = className;
+    div.textContent = text;
+    output.appendChild(div);
+    scrollToBottom();
+  }
+
+  function printHTML(html) {
+    const div = document.createElement("div");
+    div.className = "output";
+    div.innerHTML = html;
+    output.appendChild(div);
+
+    const imgs = div.querySelectorAll("img");
+    if (imgs.length) {
+      imgs.forEach(img => {
+        img.onload = scrollToBottom;
+      });
+    }
+
+    scrollToBottom();
+  }
+
+  const commands = {
+    help() {
+      print(`
+Available commands:
+  whoami
+  about
+  skills
+  projects
+  contact
+  clear
+`);
+    },
+
+    whoami() {
+      print(`
+Bijay Simkhada
+Web & Flutter Developer
+`);
+    },
+
+    about() {
+      print(`
+I love building clean and scalable
+web & mobile applications.
+Always learning. Always shipping.
+`);
+    },
+
+    skills() {
+      print(`
+HTML, CSS, JavaScript
+Flutter, Dart
+Firebase, REST APIs
+Git, GitHub
+`);
+    },
+
+    projects() {
+      printHTML(`
+<div class="project">
+  <strong>DocPrep</strong> — Medical Entrance Prep App
+  <img src="https://play-lh.googleusercontent.com/BmVrp-6ZCNjr31gHQvCOGUyfpTQ96bPKeji8Y3V2huIh6_8FxhEOaghP-40THqeHzNQ=w240-h480-rw">
+  <a href="https://play.google.com/store/apps/details?id=com.ktmbees.docprep" target="_blank">
+    View on Play Store
+  </a>
+</div>
+
+<div class="project">
+  <strong>Tolka</strong> — Learn German App
+  <img src="https://play-lh.googleusercontent.com/SR70SUdP21e4mczqA-2RuWde9z5LUHTkYd_6tl3uziqy0Gqj8b8wsxq3iYS7Yv83Atwa=w240-h480-rw">
+  <a href="https://play.google.com/store/apps/details?id=com.ktmbees.tolka" target="_blank">
+    View on Play Store
+  </a>
+</div>
+`);
+    },
+
+    contact() {
+      print(`
+Email   : bijaysimkhada5@gmail.com
+GitHub  : github.com/BijaySimkhada
+LinkedIn: linkedin.com/in/bijay-simkhada-3b26141b4
+`);
+    }
+  };
+
+  function runCommand(cmd) {
+    printPrompt(cmd);
+
+    if (cmd === "clear") {
+      output.innerHTML = "";
+      return;
+    }
+
+    if (commands[cmd]) {
+      commands[cmd]();
+    } else {
+      print(`command not found: ${cmd}`, "error");
+    }
+  }
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const cmd = input.value.trim();
+      if (cmd) runCommand(cmd);
+      input.value = "";
+    }
+  });
+
+  window.addEventListener("click", () => input.focus());
+
+  // Boot message
+  print("Welcome to Bijay's Portfolio CLI");
+  print("Type `help` to get started.\n");
+</script>
+
 </body>
-
 </html>
